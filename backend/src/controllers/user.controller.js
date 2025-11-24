@@ -71,10 +71,31 @@ const loginUser = async( req, res) => {
     }
 }
 
-// update user
-const updateUser = async (req, res)=> {
+// loginOut user
+const logoutUser = async( req, res) => {
+    try {
+        const {email} = req.body;
 
+        const user = await User.findOne({
+            email
+        });
+
+        if(!user) return res.status(404).json({
+            message:"User doesn't exist!"
+        });
+        
+        res.status(200).json({
+            message:"Logout Successful"
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            message:"Internal server error",
+            error:error
+        })
+    }
 }
+
 
 export{
     registerUser,
