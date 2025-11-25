@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 
 // register user
-const registerUser = async(req,res) => {
+const registerUser = async( req,res ) => {
     try {
         const { username, email, password } = req.body;
         // basic validation
@@ -38,7 +38,7 @@ const registerUser = async(req,res) => {
 }
 
 // login user
-const loginUser = async( req, res) => {
+const loginUser = async( req, res ) => {
     try {
         const { email, password } = req.body;
         if(!email || !password){
@@ -72,7 +72,7 @@ const loginUser = async( req, res) => {
 }
 
 // loginOut user
-const logoutUser = async( req, res) => {
+const logoutUser = async( req, res ) => {
     try {
         const {email} = req.body;
 
@@ -99,5 +99,6 @@ const logoutUser = async( req, res) => {
 
 export{
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser
 }
